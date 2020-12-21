@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent Car</title>
+</head>
+<body>
+<h1>Lista wypożyczeń</h1>
+<div th:replace="fragments :: navigator"></div>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>PracownikID</th>
+        <th>Reservacja Id</th>
+        <th>Uwagi</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="rentCar:${listOfRentCar}">
+        <td th:text="${rentCar.id}"></td>
+        <td th:text="${rentCar.employee.id}"></td>
+        <td th:text="${rentCar.reservation.id}"></td>
+        <td th:text="${rentCar.notes}"></td>
+        <!--        <td>-->
+        <!--            <a th:href="@{'/rentCar/details/' +${rentCar.id}}">Szczegoły</a>-->
+        <!--        </td>-->
+
+        <td>
+            <a th:href="@{/returnCar/add(reservationId=${rentCar.reservation.id})}">Zwrot</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fragments</title>
+</head>
+<body>
+<div th:fragment="navigator">
+    <table>
+
+        <tr>
+            <td>
+                <a th:href="@{/}">Home</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a th:href="@{/client/add}">Dodawanie klienta</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a th:href="@{/client/list}">Lista klientow</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a th:href="@{/car/add}">Dodawanie samochodu</a>
+            </td>
+        </tr>
+            <tr>
+            <td>
+                <a th:href="@{/car/list}">Lista samochodow</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a th:href="@{/employee/add}">Dodawanie pracownikow</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a th:href="@{/employee/list}">Lista pracownikow</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a th:href="@{/department/add}">Dodawanie oddzialu</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a th:href="@{/department/list}">Lista oddzialow</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a th:href="@{/reservation/add}">Dodawanie rezerwacji</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a th:href="@{/reservation/list}">Lista reserwacji</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a th:href="@{/rentCar/list}">Lista wypożyczeń</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a th:href="@{/returnCar/list}">Lista zwrotów</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

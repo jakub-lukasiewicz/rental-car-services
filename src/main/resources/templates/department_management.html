@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Zarządzanie oddziałami</title>
+
+</head>
+<br>
+<h1>Zarządzanie oddziałami</h1>
+</br>
+<div th:replace="fragments :: navigator"></div>
+</br>
+</br>
+<h2>Lista Pracowników</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Imie</th>
+        <th>Nazwisko</th>
+        <th>Stanowisko</th>
+        <th>Oddział</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee:${listOfEmployeeForDepartment}">
+        <td th:text="${employee.id}"></td>
+        <td th:text="${employee.name}"></td>
+        <td th:text="${employee.lastName}"></td>
+        <td th:text="${employee.position}"></td>
+        <td th:text="${employee.department.city}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<h2>Dostępne Auta</h2>
+<br/>
+Od kiedy: <input type="date"/>
+<br/>
+Do kiedy: <input type="date"/>
+<br/>
+
+
+
+</body>
+</html>

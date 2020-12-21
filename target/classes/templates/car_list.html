@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Client New Form</title>
+</head>
+<body>
+<h1>Lista samochodów</h1>
+<div th:replace="fragments :: navigator"></div>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Marka</th>
+        <th>Model</th>
+        <th>Typ nadwozia</th>
+        <th>Rok produkcji</th>
+        <th>Kolor</th>
+        <th>Przebieg</th>
+        <th>Status</th>
+        <th>Koszt</th>
+        <th>Oddział</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="car:${listOfCar}">
+        <td th:text="${car.id}"></td>
+        <td th:text="${car.brand}"></td>
+        <td th:text="${car.model}"></td>
+        <td th:text="${car.bodyType}"></td>
+        <td th:text="${car.productionYear}"></td>
+        <td th:text="${car.colour}"></td>
+        <td th:text="${car.mileage}"></td>
+        <td th:text="${car.status}"></td>
+        <td th:text="${car.costOfDay}"></td>
+        <td th:text="${car.department.city}"></td>
+        <td>
+            <a th:href="@{'/car/delete/' +${car.id}}">Usuń</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

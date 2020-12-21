@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pl"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Department new form</title>
+</head>
+<body>
+<h1>Dodawanie oddziału</h1>
+<div th:replace="fragments :: navigator"></div>
+<form th:action="@{/department/add}" th:method="post" th:object="${newDepartment}">
+    <input type="hidden" th:field="*{id}">
+    Miasto: <input th:field="*{city}"/>
+    <br/>
+    Ulica: <input th:field="*{street}"/>
+    <br/>
+    Numer ulicy: <input th:field="*{streetNumber}"/>
+    <br/>
+    Kod pocztowy: <input th:field="*{postCode}"/>
+    <input type="submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation New Form</title>
+</head>
+<body>
+<h1>Dodawanie rezerwacji</h1>
+<div th:replace="fragments :: navigator"></div>
+<form th:action="@{/reservation/add}" th:method="post" th:object="${newReservation}">
+    Data rezerwacji: <input type="date" th:field="*{reservationDate}"/>
+    <br/>
+    Klient: <input th:field="*{clientId}"/>
+    <br/>
+    Samochód: <input th:field="*{carId}"/>
+    <br/>
+    Od kiedy: <input type="date" th:field="*{rentFrom}"/>
+    <br/>
+    Do kiedy: <input type="date" th:field="*{rentTo}"/>
+    <br/>
+    Miejsce odbioru: <select th:field="*{departmentFrom}">
+    <option th:each="department : ${departments}"
+            th:value="${department.id}"
+            th:text="${department.city}"/>
+
+</select>
+    <br/>
+    Miejsce zwrotu: <select th:field="*{departmentTo}">
+    <option th:each="department : ${departments}"
+            th:value="${department.id}"
+            th:text="${department.city}"/>
+
+</select>
+    <br/>
+    <input type="submit">
+
+</form>
+
+</body>
+</html>
+

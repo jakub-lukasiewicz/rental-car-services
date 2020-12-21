@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation List</title>
+</head>
+<body>
+<h1>Lista rezerwacji</h1>
+<div th:replace="fragments :: navigator"></div>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Data rezerwacji</th>
+        <th>Klient</th>
+        <th>Samochód</th>
+        <th>Od</th>
+        <th>Do</th>
+        <th>Punkt odbioru</th>
+        <th>Punkt zwrotu</th>
+        <th>Szacowany koszt</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="reservation:${listOfReservation}">
+        <td th:text="${reservation.id}"></td>
+        <td th:text="${reservation.dateReservation.toString()}"></td>
+        <td th:text="${reservation.client.id}"></td>
+        <td th:text="${reservation.car.id}"></td>
+        <td th:text="${reservation.rentFrom.toString()}"></td>
+        <td th:text="${reservation.rentTo.toString()}"></td>
+        <td th:text="${reservation.departmentFrom.city}"></td>
+        <td th:text="${reservation.departmentTo.city}"></td>
+        <td th:text="${reservation.cost}"></td>
+
+        <td>
+            <a th:href="@{'/reservation/delete/' +${reservation.id}}">Usuń</a>
+        </td>
+        <td>
+            <!--            <a th:href="@{'/rentCar/add/?dateFrom='+${reservation.rentFrom}+'&dateReservation=' +${reservation.dateReservation}}">Szczegóły</a>-->
+            <a th:href="@{/rentCar/add(dateFrom=${reservation.rentFrom},dateReservation=${reservation.dateReservation},reservationId=${reservation.id},cost=${reservation.cost})}">Szczegóły</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

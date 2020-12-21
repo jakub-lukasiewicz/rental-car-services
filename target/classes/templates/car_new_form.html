@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodawanie Samochodu</title>
+</head>
+<body>
+<h1>Dodawanie samochodu</h1>
+<div th:replace="fragments :: navigator"></div>
+<form th:action="@{/car/add}" th:method="post" th:object="${newCar}">
+
+    Marka: <input th:field="*{brand}"/>
+    <br/>
+    Model: <input th:field="*{model}"/>
+    <br/>
+    Typ nadwozia: <input th:field="*{bodyType}"/>
+    <br/>
+    Rok produkcji: <input th:field="*{productionYear}"/>
+    <br/>
+    Kolor: <input th:field="*{colour}"/>
+    <br/>
+    Przebieg: <input th:field="*{mileage}"/>
+    <br/>
+    Status: <input th:field="*{status}"/>
+    <br/>
+    Koszt: <input th:field="*{costOfDay}"/>
+    <br/>
+    Oddział: <select th:field="*{departmentId}">
+    <option th:each="oddzial : ${departments}"
+            th:value="${oddzial.id}"
+            th:text="${oddzial.city}"/>
+</select>
+    <input type="submit">
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Department List</title>
+</head>
+<body>
+<h1>Lista oddzialow</h1>
+<div th:replace="fragments :: navigator"></div>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Miasto</th>
+        <th>Ulica</th>
+        <th>Numer ulicy</th>
+        <th>Kod pocztowy</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="department:${listOfDepartment}">
+        <td th:text="${department.id}"></td>
+        <td th:text="${department.city}"></td>
+        <td th:text="${department.street}"></td>
+        <td th:text="${department.streetNumber}"></td>
+        <td th:text="${department.postCode}"></td>
+        <td>
+            <a th:href="@{'/department/delete/' +${department.id}}">Usuń</a>
+        </td>
+        <td>
+            <a th:href="@{'/department/management/' +${department.id}}">Szczegóły</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

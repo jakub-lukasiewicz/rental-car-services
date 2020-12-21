@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent Car Add</title>
+</head>
+<body>
+<h1>Dodaj wypożyczenie</h1>
+<div th:replace="fragments :: navigator"></div>
+<form th:action="@{/rentCar/add}" th:method="post" th:object="${newRentCar}">
+    Pracownik: <select th:field="*{employeeId}">
+    <option th:each=" pracownik : ${employee}"
+            th:value="${pracownik.id}"
+            th:text="${pracownik.lastName}"/>
+</select>
+    <br/>
+    Notatki: <input th:field="*{notes}">
+    <br/>
+    Wypożyczasz pojazd od: <th:block th:text="${dateFrom}"></th:block>
+    Szacowany koszt: <th:block th:text="${cost}"></th:block>
+    Data rezerwacji: <th:block th:text="${dateReservation}"></th:block>
+    Id: <th:block th:text="${reservationId}"></th:block>
+    <input th:value="${reservationId}" type="hidden" id="reservationId" name="reservationId">
+    <input type="submit">
+    </select>
+</form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Return Car Add</title>
+</head>
+<body>
+<h1>Zakończ wypożyczenie</h1>
+<div th:replace="fragments :: navigator"></div>
+<form th:action="@{/returnCar/add}" th:method="post" th:object="${newReturnCar}">
+    Pracownik: <select th:field="*{employeeId}">
+    <option th:each=" pracownik : ${employee}"
+            th:value="${pracownik.id}"
+            th:text="${pracownik.lastName}"/>
+</select>
+    <br/>
+    Notatki: <input th:field="*{notes}">
+    <br/>
+    Data zwrotu: <input type="date" th:field="*{returnDate}"/>
+    <br/>
+    Dodatkowa opłata: <input th:field="*{additionalFee}"/>
+    <br/>
+    Id: <th:block th:text="${reservationId}"></th:block>
+    <input th:value="${reservationId}" type="hidden" id="reservationId" name="reservationId">
+    <input type="submit">
+    </select>
+</form>
+</body>
+</html>

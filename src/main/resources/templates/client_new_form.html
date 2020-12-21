@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Client New Form</title>
+</head>
+<body>
+<h1>Dodawanie klienta</h1>
+<div th:replace="fragments :: navigator"></div>
+<form th:action="@{/client/add}" th:method="post" th:object="${newClient}">
+
+    Imie: <input th:field="*{name}"/>
+    <br/>
+    Nazwisko: <input th:field="*{lastName}"/>
+    <br/>
+    E-mail: <input th:field="*{emailAddress}"/>
+    <br/>
+    Miasto: <input th:field="*{city}"/>
+    <br/>
+    Ulica: <input th:field="*{street}"/>
+    <br/>
+    Numer ulicy <input th:field="*{streetNumber}"/>
+    <br/>
+    Kod pocztowy: <input th:field="*{postCode}"/>
+    <input type="submit">
+
+</form>
+
+</body>
+</html>

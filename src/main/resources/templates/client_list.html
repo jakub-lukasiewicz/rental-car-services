@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Klientow</title>
+</head>
+<body>
+<h1>Lista klientow</h1>
+<div th:replace="fragments :: navigator"></div>
+<table>
+    <thead>
+    <tr>
+    <th>Id</th>
+    <th>Imie</th>
+    <th>Nazwisko</th>
+    <th>email</th>
+    <th>Miasto</th>
+    <th>Ulica</th>
+    <th>Numer ulicy</th>
+    <th>Kod pocztowy</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="client:${listOfClient}">
+        <td th:text="${client.id}"></td>
+        <td th:text="${client.name}"></td>
+        <td th:text="${client.lastName}"></td>
+        <td th:text="${client.emailAddress}"></td>
+        <td th:text="${client.city}"></td>
+        <td th:text="${client.street}"></td>
+        <td th:text="${client.streetNumber}"></td>
+        <td th:text="${client.postCode}"></td>
+
+        <td>
+            <a th:href="@{'/client/delete/' +${client.id}}">Usuń</a>
+        </td>
+<!--        <td>-->
+<!--            <a th:href="@{/client/details(clientIdentifier=${client.id})}">Szczegoly</a>-->
+<!--        </td>-->
+        <td>
+            <a th:href="@{'/client/details/'+${client.id}}">Szczegoly</a>
+        </td>
+
+    </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>

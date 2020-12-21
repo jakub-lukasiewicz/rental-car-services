@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Return Car List</title>
+</head>
+<body>
+<h1>Lista zwrotów</h1>
+<div th:replace="fragments :: navigator"></div>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>PracownikID</th>
+        <th>Reservacja Id</th>
+        <th>Uwagi</th>
+        <th>Data zwrotu</th>
+        <th>Dodatkowa opłata</th>
+        <th>Opłata za opóźnienie</th>
+        <th>Cena końcowa</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="returnCar:${listOfReturnCar}">
+        <td th:text="${returnCar.id}"></td>
+        <td th:text="${returnCar.employee.id}"></td>
+        <td th:text="${returnCar.reservation.id}"></td>
+        <td th:text="${returnCar.notes}"></td>
+        <td th:text="${returnCar.returnDate}"></td>
+        <td th:text="${returnCar.additionalFee}"></td>
+        <td th:text="${returnCar.delayFee}"></td>
+        <td th:text="${returnCar.totalCost}"></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

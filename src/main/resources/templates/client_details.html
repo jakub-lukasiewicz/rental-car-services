@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Details</title>
+</head>
+<body>
+<h1>Szczegóły Klienta z id </h1>
+
+<!--<span th:text="${clientDetails.id}"></span>-->
+<div th:replace="fragments :: navigator"></div>
+<br/>
+
+<!--<table>-->
+<!--    <tr>-->
+<!--        <td>Id:</td>-->
+<!--        <td th:text="${clientDetails.id}"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Imie:</td>-->
+<!--        <td th:text="${clientDetails.name}"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Nazwisko:</td>-->
+<!--        <td th:text="${clientDetails.lastName}"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>emial:</td>-->
+<!--        <td th:text="${clientDetails.emailAddress}"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Miasto:</td>-->
+<!--        <td th:text="${clientDetails.city}"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Ulica:</td>-->
+<!--        <td th:text="${clientDetails.streetNumber}"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Kod pocztowy:</td>-->
+<!--        <td th:text="${clientDetails.postCode}"></td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--<br/>-->
+
+<thead>
+<tr>
+    <td>Id</td>
+    <td>Data rezerwacji</td>
+    <td>Klient</td>
+    <td>Samochód</td>
+    <td>Od</td>
+    <td>Do</td>
+    <td>Punkt odbioru</td>
+    <td>Punkt zwrotu</td>
+</tr>
+</thead>
+<tbody>
+<tr th:each="reservation : ${listOfCReservationForClient}">
+    <td th:text="${reservation.id}"></td>
+    <td th:text="${reservation.dateReservation}"></td>
+    <td th:text="${reservation.client}"></td>
+    <td th:text="${reservation.car}"></td>
+    <td th:text="${reservation.rentFrom}"></td>
+    <td th:text="${reservation.rentTo}"></td>
+    <td th:text="${reservation.departmentFrom}"></td>
+    <td th:text="${reservation.departmentTo}"></td>
+
+</tr>
+</tbody>
+</table>
+</body>
+</html>
